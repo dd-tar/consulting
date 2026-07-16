@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daya — I translate complexity into clarity</title>
+<meta name="description" content="Independent consultant for founders and teams: AI adoption, technical storytelling, research & landscape mapping, 0→1 structuring.">
+<!-- ============ EDIT ME: replace title/description above with your final wording ============ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --paper:#F4F4EE;
+  --ink:#15151A;
+  --muted:#5F5F68;
+  --blue:#2430C8;
+  --yellow:#F5E53B;
+  --line:#D8D8CF;
+  --card:#FBFBF7;
+
+  --font-display:"Archivo Black", sans-serif;
+  --font-body:"Archivo", sans-serif;
+  --font-mono:"Spline Sans Mono", monospace;
+
+  --w:1120px;
+  --pad:clamp(20px, 4vw, 48px);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:var(--yellow); color:var(--ink); }
+
+a{ color:var(--blue); text-decoration-thickness:1.5px; text-underline-offset:3px; }
+a:hover{ text-decoration:none; }
+:focus-visible{ outline:3px solid var(--blue); outline-offset:3px; border-radius:2px; }
+
+.wrap{ max-width:var(--w); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad); }
+
+/* mono eyebrow labels */
+.label{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:flex; align-items:center; gap:12px;
+}
+.label::before{
+  content:""; width:34px; height:2px; background:var(--blue); display:inline-block;
+}
+
+/* marker highlight — the signature */
+.hl{
+  background:var(--yellow);
+  box-shadow:0.14em 0 0 var(--yellow), -0.14em 0 0 var(--yellow);
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  height:64px;
+}
+.logo{
+  font-family:var(--font-display);
+  font-size:20px; color:var(--ink); text-decoration:none; letter-spacing:0.02em;
+}
+.logo span{ color:var(--blue); }
+.nav-links{ display:flex; gap:28px; list-style:none; }
+.nav-links a{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em;
+  color:var(--ink); text-decoration:none;
+}
+.nav-links a:hover, .nav-links a.active{ color:var(--blue); }
+.btn{
+  display:inline-block;
+  font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em;
+  background:var(--ink); color:var(--paper);
+  padding:10px 18px; border-radius:999px;
+  text-decoration:none; border:2px solid var(--ink);
+  transition:background .15s ease, color .15s ease;
+  cursor:pointer;
+}
+.btn:hover{ background:var(--blue); border-color:var(--blue); color:#fff; }
+.btn-big{ font-size:15px; padding:14px 26px; }
+@media (max-width:760px){
+  .nav-links{ display:none; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ padding:clamp(72px, 12vh, 140px) 0 clamp(56px, 9vh, 110px); }
+.hero .label{ margin-bottom:28px; }
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(44px, 9.5vw, 108px);
+  line-height:0.98;
+  letter-spacing:-0.01em;
+  text-transform:uppercase;
+  max-width:12ch;
+}
+.hero h1 .scramble{ display:inline-block; min-width:6.2ch; }
+.hero-sub{
+  margin-top:34px;
+  max-width:620px;
+  font-size:clamp(17px, 2vw, 20px);
+  color:var(--ink);
+}
+.hero-cta{ margin-top:40px; display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
+.hero-cta .quiet{
+  font-family:var(--font-mono); font-size:13px; color:var(--muted);
+  text-decoration:none;
+}
+.hero-cta .quiet:hover{ color:var(--blue); }
+
+/* ============================================================
+   SECTIONS (shared)
+   ============================================================ */
+section{ padding:clamp(64px, 10vh, 120px) 0; border-top:1px solid var(--line); }
+.sec-head{ margin-bottom:clamp(36px, 6vh, 64px); }
+.sec-head h2{
+  font-family:var(--font-display);
+  font-size:clamp(30px, 5vw, 54px);
+  line-height:1.05;
+  text-transform:uppercase;
+  margin-top:18px;
+  max-width:20ch;
+}
+
+/* ============================================================
+   SYMPTOMS
+   ============================================================ */
+.symptoms{ list-style:none; max-width:760px; }
+.symptoms li{
+  padding:22px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:clamp(18px, 2.4vw, 24px);
+  line-height:1.4;
+  font-weight:500;
+}
+.symptoms li:last-child{ border-bottom:none; }
+.verdict{
+  margin-top:44px;
+  font-size:clamp(20px, 3vw, 30px);
+  font-weight:600;
+  line-height:1.35;
+  max-width:22ch;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+@media (max-width:860px){ .services{ grid-template-columns:1fr; } }
+.service{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:clamp(24px, 3vw, 36px);
+  display:flex; flex-direction:column; gap:18px;
+}
+.service .tag{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em;
+  color:var(--blue);
+}
+.service h3{
+  font-family:var(--font-display);
+  font-size:clamp(21px, 2.4vw, 27px);
+  line-height:1.15;
+  text-transform:uppercase;
+}
+.translation{
+  border-top:1px solid var(--line);
+  padding-top:18px;
+  display:grid;
+  gap:8px;
+}
+.translation .from{
+  font-family:var(--font-mono);
+  font-size:14px;
+  color:var(--muted);
+  text-decoration:line-through;
+  text-decoration-color:color-mix(in srgb, var(--muted) 55%, transparent);
+}
+.translation .arrow{
+  font-family:var(--font-mono); font-size:14px; color:var(--blue);
+}
+.translation .to{ font-size:16px; font-weight:500; }
+.service .includes{
+  margin-top:auto;
+  font-size:14px; color:var(--muted);
+}
+.service .includes b{ color:var(--ink); font-weight:600; }
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.steps{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; counter-reset:step; }
+@media (max-width:860px){ .steps{ grid-template-columns:1fr; } }
+.step{
+  border-top:3px solid var(--ink);
+  padding-top:20px;
+}
+.step .step-label{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--muted);
+  display:block; margin-bottom:12px;
+}
+.step h3{
+  font-family:var(--font-display);
+  font-size:20px; text-transform:uppercase; line-height:1.2;
+  margin-bottom:10px;
+}
+.step p{ font-size:15.5px; color:var(--ink); }
+.principles{
+  margin-top:clamp(44px, 7vh, 72px);
+  max-width:720px;
+}
+.principles p{
+  font-size:clamp(17px, 2.1vw, 21px);
+  font-weight:500;
+  padding:16px 0;
+  border-bottom:1px dashed var(--line);
+}
+.principles p:last-child{ border-bottom:none; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(28px, 5vw, 72px); }
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
+.about-grid .big{
+  font-size:clamp(19px, 2.4vw, 25px);
+  line-height:1.5;
+  font-weight:500;
+}
+.about-grid .big + .big{ margin-top:22px; }
+.facts{ list-style:none; }
+.facts li{
+  font-family:var(--font-mono); font-size:14px;
+  padding:14px 0; border-bottom:1px solid var(--line);
+  color:var(--ink);
+}
+.facts li:first-child{ padding-top:0; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{ background:var(--ink); color:var(--paper); border-top:none; }
+.contact .label{ color:#9A9AA6; }
+.contact .label::before{ background:var(--yellow); }
+.contact h2{
+  font-family:var(--font-display);
+  font-size:clamp(34px, 6vw, 68px);
+  text-transform:uppercase; line-height:1.02;
+  margin-top:18px; max-width:16ch;
+}
+.contact .hint{
+  margin-top:22px; font-size:clamp(16px, 2vw, 19px);
+  color:#C9C9D2; max-width:520px;
+}
+.contact-row{
+  margin-top:44px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+}
+.chip{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--font-mono); font-size:14px;
+  border:1px solid #3A3A44; border-radius:999px;
+  padding:12px 20px; color:var(--paper); text-decoration:none;
+  background:transparent; cursor:pointer;
+  transition:border-color .15s ease;
+}
+.chip:hover{ border-color:var(--yellow); }
+.chip .dot{ width:8px; height:8px; border-radius:50%; background:var(--yellow); }
+
+.mini-form{
+  margin-top:56px; max-width:640px;
+  display:grid; gap:14px;
+}
+.mini-form label{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em;
+  text-transform:uppercase; color:#9A9AA6;
+}
+.mini-form input, .mini-form textarea{
+  width:100%;
+  background:#1F1F26;
+  border:1px solid #3A3A44;
+  border-radius:10px;
+  color:var(--paper);
+  font-family:var(--font-body);
+  font-size:16px;
+  padding:14px 16px;
+}
+.mini-form input:focus, .mini-form textarea:focus{
+  outline:none; border-color:var(--yellow);
+}
+.mini-form textarea{ min-height:120px; resize:vertical; }
+.mini-form .btn{
+  justify-self:start;
+  background:var(--yellow); border-color:var(--yellow); color:var(--ink);
+  font-weight:500;
+}
+.mini-form .btn:hover{ background:#fff; border-color:#fff; color:var(--ink); }
+.form-note{ font-family:var(--font-mono); font-size:12px; color:#7C7C88; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  background:var(--ink); color:#8A8A96;
+  padding:36px 0 44px;
+  border-top:1px solid #2A2A32;
+}
+.footer-inner{
+  display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  font-family:var(--font-mono); font-size:12.5px;
+}
+footer a{ color:#B9B9C4; }
+
+/* reveal on scroll */
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <!-- EDIT ME: logo text -->
+    <a class="logo" href="#top">DAYA<span>.</span></a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#services">What I do</a></li>
+        <li><a href="#process">How I work</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#contact">Tell me about your task</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" style="border-top:none;">
+    <div class="wrap">
+      <!-- EDIT ME: your name / status line -->
+      <p class="label">Daya · Independent consultant · Austria — remote, worldwide</p>
+      <h1>
+        Complexity in.<br>
+        <span class="hl scramble" id="scramble" data-word="Clarity">Clarity</span> out.
+      </h1>
+      <p class="hero-sub">
+        I'm a translator for founders and teams stuck in technical fog: I make AI adoption
+        concrete, turn dense technology into stories people follow, map markets that didn't
+        exist two years ago, and shape ambiguous ideas into buildable plans.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-big" href="#contact">Tell me about your task ↗</a>
+        <a class="quiet" href="#familiar">Not sure yet? Keep scrolling ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOUND FAMILIAR
+       ============================================================ -->
+  <section id="familiar">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">The symptoms</p>
+        <h2>Sound familiar?</h2>
+      </div>
+      <ul class="symptoms">
+        <li class="reveal">The board wants "an AI strategy" — and nobody in the room can say what that means.</li>
+        <li class="reveal">Your product is genuinely hard. Your pitch deck proves it, in the worst possible way.</li>
+        <li class="reveal">You need a map of a market that didn't exist eighteen months ago.</li>
+        <li class="reveal">The idea is real — but it lives in your head and forty Notion pages.</li>
+      </ul>
+      <p class="verdict reveal">
+        Then you don't need another tool or a 60-slide deck.
+        You need a <span class="hl">translator</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">What I do</p>
+        <h2>Four ways I turn fog into plans</h2>
+      </div>
+
+      <div class="services">
+
+        <article class="service reveal">
+          <p class="tag">[ AI ADOPTION ]</p>
+          <h3>AI adoption, minus the theater</h3>
+          <div class="translation">
+            <p class="from">"We should be doing something with AI."</p>
+            <p class="arrow">→ translates to</p>
+            <p class="to">A scoped roadmap: which workflows, which pilots, what success looks like — and what to kill.</p>
+          </div>
+          <p class="includes"><b>Includes:</b> workflow audit, pilot selection, tooling decisions, team enablement.</p>
+        </article>
+
+        <article class="service reveal">
+          <p class="tag">[ TECHNICAL STORYTELLING ]</p>
+          <h3>Stories technical enough to be true</h3>
+          <div class="translation">
+            <p class="from">Forty pages of architecture docs and a nervous demo.</p>
+            <p class="arrow">→ translates to</p>
+            <p class="to">A narrative that investors, clients, and new hires actually follow — and repeat.</p>
+          </div>
+          <p class="includes"><b>Includes:</b> pitch narratives, docs &amp; explainers, fundraising and launch materials.</p>
+        </article>
+
+        <article class="service reveal">
+          <p class="tag">[ RESEARCH &amp; MAPPING ]</p>
+          <h3>Landscape maps with VC-grade rigor</h3>
+          <div class="translation">
+            <p class="from">"What's even out there? Who's real, who's a demo?"</p>
+            <p class="arrow">→ translates to</p>
+            <p class="to">A sourced map of players, moats, and white space — decision-ready, not just interesting.</p>
+          </div>
+          <p class="includes"><b>Includes:</b> market &amp; competitor mapping, deep dives, diligence-style research.</p>
+        </article>
+
+        <article class="service reveal">
+          <p class="tag">[ 0 → 1 STRUCTURING ]</p>
+          <h3>From fog to first version</h3>
+          <div class="translation">
+            <p class="from">A vision, a deadline, and forty open questions.</p>
+            <p class="arrow">→ translates to</p>
+            <p class="to">Requirements, scope, and an operating plan for v1 that a small team can actually execute.</p>
+          </div>
+          <p class="includes"><b>Includes:</b> requirements out of ambiguity, v1 scoping, process design for tiny teams.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS
+       ============================================================ -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">How I work</p>
+        <h2>Small first. Bigger only if it earns it.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-label">Step one</span>
+          <h3>We talk</h3>
+          <p>30 minutes, free. You describe the task in your own words; I ask the annoying-but-necessary questions.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-label">Step two</span>
+          <h3>Diagnostic sprint</h3>
+          <p>1–2 weeks, fixed price, small scope, real deliverable. You see how I think before committing to anything big.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-label">Step three</span>
+          <h3>Project or advisory</h3>
+          <p>Ongoing work, a defined project, or a few hours a month of a translator on call — whatever the task actually needs.</p>
+        </div>
+      </div>
+
+      <div class="principles reveal">
+        <p>Every engagement ends in a <span class="hl">document you own</span> — not a memory of a nice call.</p>
+        <p>No jargon in deliverables. If your grandmother can't follow the summary, I rewrite it.</p>
+        <p>If you don't need me, I'll say so on the first call. It's cheaper for both of us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Who's writing</p>
+        <h2>Same job, four industries</h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p class="big">
+            I've spent my career translating between worlds: venture capital analysis,
+            LLM &amp; AI development, blockchain infrastructure, technical research.
+            Different rooms, same job — take something dense and
+            <span class="hl">make it make sense</span>.
+          </p>
+          <p class="big">
+            That's why I'm useful in the gap where most projects stall: between the people
+            who build the thing and the people who need to decide about it.
+          </p>
+        </div>
+        <ul class="facts">
+          <!-- EDIT ME: adjust facts freely -->
+          <li>→ Background: VC · AI/LLM · blockchain infra · research</li>
+          <li>→ Languages: English, Russian</li>
+          <li>→ Based in Austria, works remote worldwide</li>
+          <li>→ Off duty: drums, Jungian psychology, and a dog with strong opinions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2>Tell me about your task</h2>
+      <p class="hint">Three lines are enough: the context, the task, the deadline. I reply within one working day.</p>
+
+      <div class="contact-row">
+        <!-- EDIT ME: replace with your real email and Telegram handle (also in the JS CONFIG at the bottom) -->
+        <button class="chip" id="copy-email" type="button">
+          <span class="dot"></span><span id="email-text">hello@your-domain.com</span><span id="copy-state">· copy</span>
+        </button>
+        <a class="chip" href="https://t.me/your_handle" target="_blank" rel="noopener">
+          <span class="dot"></span>Telegram · @your_handle
+        </a>
+      </div>
+
+      <form class="mini-form" id="task-form">
+        <div>
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name">
+        </div>
+        <div>
+          <label for="f-task">The task, in your own words</label>
+          <textarea id="f-task" name="task" placeholder="Context. Task. Deadline."></textarea>
+        </div>
+        <button class="btn btn-big" type="submit">Draft the email →</button>
+        <p class="form-note">This opens a pre-filled email in your mail app — nothing is stored on this site.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>© 2026 Daya. All translations final.</p>
+    <p>No cookies, no tracking, no newsletter popup.</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — EDIT ME
+   ============================================================ */
+const CONFIG = {
+  email: "hello@your-domain.com"   // <-- your real email (used by the copy button and the form)
+};
+
+/* ---- keep the visible email in sync with CONFIG ---- */
+document.getElementById("email-text").textContent = CONFIG.email;
+
+/* ============================================================
+   Hero scramble: "Clarity" resolves out of noise
+   ============================================================ */
+(function(){
+  const el = document.getElementById("scramble");
+  if(!el) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduced) return;
+
+  const word = el.dataset.word;
+  const glyphs = "◼◻▤▥#%&$@?!/\\<>{}[]≠≈∆";
+  let frame = 0;
+  const total = 36; // ~0.9s at 40ms
+
+  const timer = setInterval(() => {
+    frame++;
+    const settled = Math.floor((frame / total) * word.length);
+    let out = "";
+    for(let i = 0; i < word.length; i++){
+      out += i < settled ? word[i] : glyphs[Math.floor(Math.random() * glyphs.length)];
+    }
+    el.textContent = out;
+    if(frame >= total){
+      el.textContent = word;
+      clearInterval(timer);
+    }
+  }, 40);
+})();
+
+/* ============================================================
+   Reveal on scroll
+   ============================================================ */
+(function(){
+  const items = document.querySelectorAll(".reveal");
+  if(!("IntersectionObserver" in window)){
+    items.forEach(i => i.classList.add("in"));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(i => io.observe(i));
+})();
+
+/* ============================================================
+   Copy email
+   ============================================================ */
+(function(){
+  const btn = document.getElementById("copy-email");
+  const state = document.getElementById("copy-state");
+  btn.addEventListener("click", async () => {
+    try{
+      await navigator.clipboard.writeText(CONFIG.email);
+      state.textContent = "· copied ✓";
+    }catch(e){
+      state.textContent = "· " + CONFIG.email;
+    }
+    setTimeout(() => state.textContent = "· copy", 2000);
+  });
+})();
+
+/* ============================================================
+   Form → pre-filled mailto (no backend needed)
+   ============================================================ */
+(function(){
+  const form = document.getElementById("task-form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("f-name").value.trim();
+    const task = document.getElementById("f-task").value.trim();
+    const subject = encodeURIComponent("Task: " + (name || "new inquiry"));
+    const body = encodeURIComponent(task + (name ? "\n\n— " + name : ""));
+    window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
+  });
+})();
+</script>
+</body>
+</html>
