@@ -3,366 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daya — I translate complexity into clarity</title>
-<meta name="description" content="Independent consultant for founders and teams: AI adoption, technical storytelling, research & landscape mapping, 0→1 structuring.">
-<!-- ============ EDIT ME: replace title/description above with your final wording ============ -->
+
+<title>Daya — independent consultant: decide what to build, buy, or change before you spend</title>
+<meta name="description" content="Independent consultant. I help companies decide what to build, buy, or change before the money gets spent: discovery sprints, technical & market assessments, evidence-based decision briefs. Remote, EN/RU.">
+<link rel="canonical" href="https://dd-tar.github.io/consulting/">
+<link rel="alternate" hreflang="en" href="https://dd-tar.github.io/consulting/">
+<link rel="alternate" hreflang="ru" href="https://dd-tar.github.io/consulting/ru/">
+<link rel="alternate" hreflang="x-default" href="https://dd-tar.github.io/consulting/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="ru">
+<meta property="og:url" content="https://dd-tar.github.io/consulting/">
+<meta property="og:site_name" content="Daya">
+<meta property="og:title" content="Daya — independent consultant. Uncertainty in, decisions out.">
+<meta property="og:description" content="I help companies decide what to build, buy, or change before the money gets spent. Discovery sprints, technical & market assessment, decision briefs with sources.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daya — independent consultant. Uncertainty in, decisions out.">
+<meta name="twitter:description" content="Discovery sprints, technical & market assessment, evidence-based decision briefs.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;800&family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 
-<style>
-/* ============================================================
-   TOKENS
-   ============================================================ */
-:root{
-  --paper:#F4F4EE;
-  --ink:#15151A;
-  --muted:#5F5F68;
-  --blue:#2430C8;
-  --yellow:#F5E53B;
-  --line:#D8D8CF;
-  --card:#FBFBF7;
-
-  --font-display:"Archivo Black", sans-serif;
-  --font-body:"Archivo", sans-serif;
-  --font-mono:"Spline Sans Mono", monospace;
-
-  --w:1120px;
-  --pad:clamp(20px, 4vw, 48px);
+<!-- Structured data: what Google AND the LLM crawlers read. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://dd-tar.github.io/consulting/#person",
+      "name": "Daya",
+      "url": "https://dd-tar.github.io/consulting/",
+      "email": "mailto:daria.tar.gz@gmail.com",
+      "jobTitle": "Independent consultant — decision research and product discovery",
+      "description": "Independent consultant helping companies decide what to build, buy, or change before spending on execution. Discovery sprints, stakeholder interviews, technical and market assessment, evidence-based decision briefs.",
+      "knowsLanguage": ["en", "ru"],
+      "knowsAbout": [
+        "product discovery",
+        "requirements gathering",
+        "business analysis",
+        "build vs buy decisions",
+        "vendor evaluation",
+        "market research",
+        "competitive landscape mapping",
+        "technology due diligence",
+        "stakeholder interviews",
+        "large language models",
+        "AI product development",
+        "blockchain infrastructure"
+      ],
+      "sameAs": ["https://t.me/dd_tar"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://dd-tar.github.io/consulting/#service",
+      "name": "Daya — decision research & discovery consulting",
+      "url": "https://dd-tar.github.io/consulting/",
+      "provider": { "@id": "https://dd-tar.github.io/consulting/#person" },
+      "areaServed": "Worldwide",
+      "availableLanguage": ["en", "ru"],
+      "serviceType": "Product discovery, decision research and technology assessment",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decision & Discovery Sprint", "description": "A fixed-price 1–2 week engagement: stakeholder interviews, problem and process analysis, market and solution scan, build-vs-buy comparison, and a decision brief with scope and requirements a team or vendor can execute." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical & Market Assessment", "description": "Independent evaluation of a market, vendor, or technology: verified claims, comparisons against measurable criteria, and an evidence-based brief separating what is known, assumed, and unknown." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fractional Discovery Lead", "description": "Ongoing engagement after a sprint: continued interviews, requirements kept current, and translation between business stakeholders and the people building." } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dd-tar.github.io/consulting/#website",
+      "url": "https://dd-tar.github.io/consulting/",
+      "name": "Daya",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://dd-tar.github.io/consulting/#person" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dd-tar.github.io/consulting/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a first engagement look like?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A free 30-minute call, then a fixed-price Decision & Discovery Sprint of one to two weeks with a small scope and a real deliverable. Bigger work only after that, if the sprint earned it." }
+        },
+        {
+          "@type": "Question",
+          "name": "We already have a dev team or an agency. Where do you fit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Before them, mostly. I define what to build and why; they build it. Software and automation agencies also bring me in directly to run discovery with their clients before quoting a project." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help with AI adoption?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — an AI decision is still a decision. I build with LLMs daily, so I can tell you where AI is the right answer and where a database and two good queries would do. It shows up inside sprints and assessments, not as a separate AI strategy package." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the research contradicts what we hoped for?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You'll hear it, with the evidence. Every claim in my deliverables is labeled as known, assumed, or unknown — and what would settle it. I don't sell conviction." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you write code?",
+          "acceptedAnswer": { "@type": "Answer", "text": "I can read it, test technical claims hands-on, and I ship my own products — that is what makes the assessment work credible. I do not take contract engineering roles." }
+        },
+        {
+          "@type": "Question",
+          "name": "What languages and time zones do you work in?",
+          "acceptedAnswer": { "@type": "Answer", "text": "English and Russian, both at working depth, deliverables included. Remote, worldwide, anchored in Central European Time." }
+        }
+      ]
+    }
+  ]
 }
-
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior:auto; }
-  *, *::before, *::after{ animation:none !important; transition:none !important; }
-}
-
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--font-body);
-  font-size:17px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-
-::selection{ background:var(--yellow); color:var(--ink); }
-
-a{ color:var(--blue); text-decoration-thickness:1.5px; text-underline-offset:3px; }
-a:hover{ text-decoration:none; }
-:focus-visible{ outline:3px solid var(--blue); outline-offset:3px; border-radius:2px; }
-
-.wrap{ max-width:var(--w); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad); }
-
-/* mono eyebrow labels */
-.label{
-  font-family:var(--font-mono);
-  font-size:12px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  display:flex; align-items:center; gap:12px;
-}
-.label::before{
-  content:""; width:34px; height:2px; background:var(--blue); display:inline-block;
-}
-
-/* marker highlight — the signature */
-.hl{
-  background:var(--yellow);
-  box-shadow:0.14em 0 0 var(--yellow), -0.14em 0 0 var(--yellow);
-  box-decoration-break:clone;
-  -webkit-box-decoration-break:clone;
-}
-
-/* ============================================================
-   NAV
-   ============================================================ */
-.nav{
-  position:sticky; top:0; z-index:50;
-  background:color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-.nav-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  height:64px;
-}
-.logo{
-  font-family:var(--font-display);
-  font-size:20px; color:var(--ink); text-decoration:none; letter-spacing:0.02em;
-}
-.logo span{ color:var(--blue); }
-.nav-links{ display:flex; gap:28px; list-style:none; }
-.nav-links a{
-  font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em;
-  color:var(--ink); text-decoration:none;
-}
-.nav-links a:hover, .nav-links a.active{ color:var(--blue); }
-.btn{
-  display:inline-block;
-  font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em;
-  background:var(--ink); color:var(--paper);
-  padding:10px 18px; border-radius:999px;
-  text-decoration:none; border:2px solid var(--ink);
-  transition:background .15s ease, color .15s ease;
-  cursor:pointer;
-}
-.btn:hover{ background:var(--blue); border-color:var(--blue); color:#fff; }
-.btn-big{ font-size:15px; padding:14px 26px; }
-@media (max-width:760px){
-  .nav-links{ display:none; }
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero{ padding:clamp(72px, 12vh, 140px) 0 clamp(56px, 9vh, 110px); }
-.hero .label{ margin-bottom:28px; }
-.hero h1{
-  font-family:var(--font-display);
-  font-size:clamp(44px, 9.5vw, 108px);
-  line-height:0.98;
-  letter-spacing:-0.01em;
-  text-transform:uppercase;
-  max-width:12ch;
-}
-.hero h1 .scramble{ display:inline-block; min-width:6.2ch; }
-.hero-sub{
-  margin-top:34px;
-  max-width:620px;
-  font-size:clamp(17px, 2vw, 20px);
-  color:var(--ink);
-}
-.hero-cta{ margin-top:40px; display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
-.hero-cta .quiet{
-  font-family:var(--font-mono); font-size:13px; color:var(--muted);
-  text-decoration:none;
-}
-.hero-cta .quiet:hover{ color:var(--blue); }
-
-/* ============================================================
-   SECTIONS (shared)
-   ============================================================ */
-section{ padding:clamp(64px, 10vh, 120px) 0; border-top:1px solid var(--line); }
-.sec-head{ margin-bottom:clamp(36px, 6vh, 64px); }
-.sec-head h2{
-  font-family:var(--font-display);
-  font-size:clamp(30px, 5vw, 54px);
-  line-height:1.05;
-  text-transform:uppercase;
-  margin-top:18px;
-  max-width:20ch;
-}
-
-/* ============================================================
-   SYMPTOMS
-   ============================================================ */
-.symptoms{ list-style:none; max-width:760px; }
-.symptoms li{
-  padding:22px 0;
-  border-bottom:1px dashed var(--line);
-  font-size:clamp(18px, 2.4vw, 24px);
-  line-height:1.4;
-  font-weight:500;
-}
-.symptoms li:last-child{ border-bottom:none; }
-.verdict{
-  margin-top:44px;
-  font-size:clamp(20px, 3vw, 30px);
-  font-weight:600;
-  line-height:1.35;
-  max-width:22ch;
-}
-
-/* ============================================================
-   SERVICES
-   ============================================================ */
-.services{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-@media (max-width:860px){ .services{ grid-template-columns:1fr; } }
-.service{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:clamp(24px, 3vw, 36px);
-  display:flex; flex-direction:column; gap:18px;
-}
-.service .tag{
-  font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em;
-  color:var(--blue);
-}
-.service h3{
-  font-family:var(--font-display);
-  font-size:clamp(21px, 2.4vw, 27px);
-  line-height:1.15;
-  text-transform:uppercase;
-}
-.translation{
-  border-top:1px solid var(--line);
-  padding-top:18px;
-  display:grid;
-  gap:8px;
-}
-.translation .from{
-  font-family:var(--font-mono);
-  font-size:14px;
-  color:var(--muted);
-  text-decoration:line-through;
-  text-decoration-color:color-mix(in srgb, var(--muted) 55%, transparent);
-}
-.translation .arrow{
-  font-family:var(--font-mono); font-size:14px; color:var(--blue);
-}
-.translation .to{ font-size:16px; font-weight:500; }
-.service .includes{
-  margin-top:auto;
-  font-size:14px; color:var(--muted);
-}
-.service .includes b{ color:var(--ink); font-weight:600; }
-
-/* ============================================================
-   PROCESS
-   ============================================================ */
-.steps{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; counter-reset:step; }
-@media (max-width:860px){ .steps{ grid-template-columns:1fr; } }
-.step{
-  border-top:3px solid var(--ink);
-  padding-top:20px;
-}
-.step .step-label{
-  font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em;
-  text-transform:uppercase; color:var(--muted);
-  display:block; margin-bottom:12px;
-}
-.step h3{
-  font-family:var(--font-display);
-  font-size:20px; text-transform:uppercase; line-height:1.2;
-  margin-bottom:10px;
-}
-.step p{ font-size:15.5px; color:var(--ink); }
-.principles{
-  margin-top:clamp(44px, 7vh, 72px);
-  max-width:720px;
-}
-.principles p{
-  font-size:clamp(17px, 2.1vw, 21px);
-  font-weight:500;
-  padding:16px 0;
-  border-bottom:1px dashed var(--line);
-}
-.principles p:last-child{ border-bottom:none; }
-
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(28px, 5vw, 72px); }
-@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
-.about-grid .big{
-  font-size:clamp(19px, 2.4vw, 25px);
-  line-height:1.5;
-  font-weight:500;
-}
-.about-grid .big + .big{ margin-top:22px; }
-.facts{ list-style:none; }
-.facts li{
-  font-family:var(--font-mono); font-size:14px;
-  padding:14px 0; border-bottom:1px solid var(--line);
-  color:var(--ink);
-}
-.facts li:first-child{ padding-top:0; }
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-.contact{ background:var(--ink); color:var(--paper); border-top:none; }
-.contact .label{ color:#9A9AA6; }
-.contact .label::before{ background:var(--yellow); }
-.contact h2{
-  font-family:var(--font-display);
-  font-size:clamp(34px, 6vw, 68px);
-  text-transform:uppercase; line-height:1.02;
-  margin-top:18px; max-width:16ch;
-}
-.contact .hint{
-  margin-top:22px; font-size:clamp(16px, 2vw, 19px);
-  color:#C9C9D2; max-width:520px;
-}
-.contact-row{
-  margin-top:44px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;
-}
-.chip{
-  display:inline-flex; align-items:center; gap:10px;
-  font-family:var(--font-mono); font-size:14px;
-  border:1px solid #3A3A44; border-radius:999px;
-  padding:12px 20px; color:var(--paper); text-decoration:none;
-  background:transparent; cursor:pointer;
-  transition:border-color .15s ease;
-}
-.chip:hover{ border-color:var(--yellow); }
-.chip .dot{ width:8px; height:8px; border-radius:50%; background:var(--yellow); }
-
-.mini-form{
-  margin-top:56px; max-width:640px;
-  display:grid; gap:14px;
-}
-.mini-form label{
-  font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em;
-  text-transform:uppercase; color:#9A9AA6;
-}
-.mini-form input, .mini-form textarea{
-  width:100%;
-  background:#1F1F26;
-  border:1px solid #3A3A44;
-  border-radius:10px;
-  color:var(--paper);
-  font-family:var(--font-body);
-  font-size:16px;
-  padding:14px 16px;
-}
-.mini-form input:focus, .mini-form textarea:focus{
-  outline:none; border-color:var(--yellow);
-}
-.mini-form textarea{ min-height:120px; resize:vertical; }
-.mini-form .btn{
-  justify-self:start;
-  background:var(--yellow); border-color:var(--yellow); color:var(--ink);
-  font-weight:500;
-}
-.mini-form .btn:hover{ background:#fff; border-color:#fff; color:var(--ink); }
-.form-note{ font-family:var(--font-mono); font-size:12px; color:#7C7C88; }
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-footer{
-  background:var(--ink); color:#8A8A96;
-  padding:36px 0 44px;
-  border-top:1px solid #2A2A32;
-}
-.footer-inner{
-  display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
-  font-family:var(--font-mono); font-size:12.5px;
-}
-footer a{ color:#B9B9C4; }
-
-/* reveal on scroll */
-.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.in{ opacity:1; transform:none; }
-@media (prefers-reduced-motion: reduce){
-  .reveal{ opacity:1; transform:none; }
-}
-</style>
+</script>
 </head>
 <body>
 
-<!-- ============================================================
-     NAV
-     ============================================================ -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <!-- EDIT ME: logo text -->
     <a class="logo" href="#top">DAYA<span>.</span></a>
     <nav aria-label="Main">
       <ul class="nav-links">
@@ -371,38 +138,36 @@ footer a{ color:#B9B9C4; }
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
-    <a class="btn" href="#contact">Tell me about your task</a>
+    <!-- Relative links on purpose: correct on username.github.io AND username.github.io/repo/ -->
+    <div class="lang">
+      <a href="./" aria-current="true" hreflang="en">EN</a>
+      <a href="ru/" hreflang="ru">RU</a>
+    </div>
+    <a class="btn" href="#contact">Tell me about your decision</a>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
-  <section class="hero" style="border-top:none;">
+  <!-- HERO -->
+  <section class="hero">
     <div class="wrap">
-      <!-- EDIT ME: your name / status line -->
-      <p class="label">Daya · Independent consultant · Austria — remote, worldwide</p>
-      <h1>
-        Complexity in.<br>
-        <span class="hl scramble" id="scramble" data-word="Clarity">Clarity</span> out.
-      </h1>
+      <p class="label">Daya · Independent consultant · Remote, worldwide</p>
+      <h1>Uncertainty in.<br><span class="hl scramble" id="scramble" data-word="Decisions">Decisions</span> out.</h1>
       <p class="hero-sub">
-        I'm a translator for founders and teams stuck in technical fog: I make AI adoption
-        concrete, turn dense technology into stories people follow, map markets that didn't
-        exist two years ago, and shape ambiguous ideas into buildable plans.
+        I help companies decide what to build, buy, or change — before the money gets spent.
+        Interviews, research, and technical analysis that turn a vague initiative into a
+        decision you can defend: options weighed, scope defined, requirements a team or
+        vendor can actually execute.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-big" href="#contact">Tell me about your task ↗</a>
+        <a class="btn btn-big" href="#contact">Tell me about your decision ↗</a>
         <a class="quiet" href="#familiar">Not sure yet? Keep scrolling ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       SOUND FAMILIAR
-       ============================================================ -->
+  <!-- SYMPTOMS -->
   <section id="familiar">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -410,81 +175,114 @@ footer a{ color:#B9B9C4; }
         <h2>Sound familiar?</h2>
       </div>
       <ul class="symptoms">
-        <li class="reveal">The board wants "an AI strategy" — and nobody in the room can say what that means.</li>
-        <li class="reveal">Your product is genuinely hard. Your pitch deck proves it, in the worst possible way.</li>
-        <li class="reveal">You need a map of a market that didn't exist eighteen months ago.</li>
-        <li class="reveal">The idea is real — but it lives in your head and forty Notion pages.</li>
+        <li class="reveal">You're about to spend real money on a product, system, or vendor — and can't yet say precisely what you need.</li>
+        <li class="reveal">Every stakeholder describes the problem differently. The meetings multiply; the decision doesn't.</li>
+        <li class="reveal">Build it, buy it, fix the process instead — or do nothing? Someone has to actually find out.</li>
+        <li class="reveal">The vendor's deck says "proprietary technology". Nobody in the room can check.</li>
       </ul>
       <p class="verdict reveal">
-        Then you don't need another tool or a 60-slide deck.
-        You need a <span class="hl">translator</span>.
+        Then you don't need more opinions. You need someone to go find out — and come back
+        with a <span class="hl">decision you can defend</span>.
       </p>
     </div>
   </section>
 
-  <!-- ============================================================
-       SERVICES
-       ============================================================ -->
+  <!-- SERVICES -->
   <section id="services">
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="label">What I do</p>
-        <h2>Four ways I turn fog into plans</h2>
+        <h2>First the decision. Then the build.</h2>
       </div>
 
       <div class="services">
 
-        <article class="service reveal">
-          <p class="tag">[ AI ADOPTION ]</p>
-          <h3>AI adoption, minus the theater</h3>
+        <article class="service flagship reveal">
+          <p class="tag">[ CORE OFFER · 1–2 WEEKS · FIXED PRICE ]</p>
+          <h3>Decision &amp; Discovery Sprint</h3>
           <div class="translation">
-            <p class="from">"We should be doing something with AI."</p>
-            <p class="arrow">→ translates to</p>
-            <p class="to">A scoped roadmap: which workflows, which pilots, what success looks like — and what to kill.</p>
+            <p class="from">"We know something has to change. We can't yet say what, exactly."</p>
+            <p class="arrow">→ you leave with</p>
+            <p class="to">A decision brief: the real problem, the options — build, buy, change the process, or do nothing — a scoped first version, requirements, and risks. A document you can hand to your team or vendor on Monday.</p>
           </div>
-          <p class="includes"><b>Includes:</b> workflow audit, pilot selection, tooling decisions, team enablement.</p>
+          <p class="includes"><b>Includes:</b> stakeholder interviews, problem &amp; process analysis, market and solution scan, build-vs-buy comparison, v1 scope and requirements.</p>
         </article>
 
         <article class="service reveal">
-          <p class="tag">[ TECHNICAL STORYTELLING ]</p>
-          <h3>Stories technical enough to be true</h3>
+          <p class="tag">[ TECHNICAL &amp; MARKET ASSESSMENT ]</p>
+          <h3>Evidence before commitment</h3>
           <div class="translation">
-            <p class="from">Forty pages of architecture docs and a nervous demo.</p>
-            <p class="arrow">→ translates to</p>
-            <p class="to">A narrative that investors, clients, and new hires actually follow — and repeat.</p>
+            <p class="from">A market, vendor, or technology decision nobody in the room can evaluate.</p>
+            <p class="arrow">→ you leave with</p>
+            <p class="to">An evidence-based brief: what's known, what's assumed, what's unknown — comparisons, risks, and a recommendation. With sources.</p>
           </div>
-          <p class="includes"><b>Includes:</b> pitch narratives, docs &amp; explainers, fundraising and launch materials.</p>
+          <p class="includes"><b>Includes:</b> market &amp; competitor research, vendor and technology comparison, verification of technical claims, diligence-style research for investors.</p>
         </article>
 
         <article class="service reveal">
-          <p class="tag">[ RESEARCH &amp; MAPPING ]</p>
-          <h3>Landscape maps with VC-grade rigor</h3>
+          <p class="tag">[ ONGOING · AFTER A SPRINT ]</p>
+          <h3>Fractional Discovery Lead</h3>
           <div class="translation">
-            <p class="from">"What's even out there? Who's real, who's a demo?"</p>
-            <p class="arrow">→ translates to</p>
-            <p class="to">A sourced map of players, moats, and white space — decision-ready, not just interesting.</p>
+            <p class="from">The project is moving — and slowly drifting away from the problem it was meant to solve.</p>
+            <p class="arrow">→ you leave with</p>
+            <p class="to">A few days a month: continued interviews, requirements kept current, and a translator between the business and the people building.</p>
           </div>
-          <p class="includes"><b>Includes:</b> market &amp; competitor mapping, deep dives, diligence-style research.</p>
-        </article>
-
-        <article class="service reveal">
-          <p class="tag">[ 0 → 1 STRUCTURING ]</p>
-          <h3>From fog to first version</h3>
-          <div class="translation">
-            <p class="from">A vision, a deadline, and forty open questions.</p>
-            <p class="arrow">→ translates to</p>
-            <p class="to">Requirements, scope, and an operating plan for v1 that a small team can actually execute.</p>
-          </div>
-          <p class="includes"><b>Includes:</b> requirements out of ambiguity, v1 scoping, process design for tiny teams.</p>
+          <p class="includes"><b>Includes:</b> requirements upkeep, stakeholder interviews, vendor &amp; team alignment, ongoing decision support.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PROCESS
-       ============================================================ -->
+  <!-- EXAMPLE TASKS -->
+  <section id="examples">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Concretely</p>
+        <h2>Tasks that land on my desk</h2>
+      </div>
+      <ul class="examples">
+        <li class="reveal"><span class="mk">01</span><span>Run discovery with our client before we quote the build. <em>(a favourite of software &amp; automation agencies)</em></span></li>
+        <li class="reveal"><span class="mk">02</span><span>We're choosing between three vendors who all claim the same thing. Tell us which claims survive contact.</span></li>
+        <li class="reveal"><span class="mk">03</span><span>Turn "we should be doing something with AI" into two scoped pilots — with owners, success criteria, and permission to kill them.</span></li>
+        <li class="reveal"><span class="mk">04</span><span>Interview twenty people in this market and come back with the barriers everyone repeats.</span></li>
+        <li class="reveal"><span class="mk">05</span><span>Benchmark competing technical solutions against measurable criteria — the report has to hold up in front of a jury.</span></li>
+        <li class="reveal"><span class="mk">06</span><span>Sit between the business and the dev team, and turn six conflicting wishlists into one spec.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FIT -->
+  <section id="fit">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Fit</p>
+        <h2>Let's save each other a call</h2>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-col reveal">
+          <h3>Work with me if</h3>
+          <ul>
+            <li>You're about to commit budget to something that isn't fully defined yet.</li>
+            <li>Your stakeholders don't agree on what the problem is — and you need them to.</li>
+            <li>A vendor, technology, or market needs an independent read before you sign.</li>
+            <li>You're an agency that wants discovery done with your client before the quote.</li>
+          </ul>
+        </div>
+        <div class="fit-col no reveal">
+          <h3>Don't, if</h3>
+          <ul>
+            <li>You've already decided and want research that agrees.</li>
+            <li>You need confidence delivered regardless of what the data says.</li>
+            <li>You need a full-time employee, not a scoped engagement.</li>
+            <li>The answer has to arrive before the research does.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
   <section id="process">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -496,91 +294,139 @@ footer a{ color:#B9B9C4; }
         <div class="step reveal">
           <span class="step-label">Step one</span>
           <h3>We talk</h3>
-          <p>30 minutes, free. You describe the task in your own words; I ask the annoying-but-necessary questions.</p>
+          <p>30 minutes, free. You describe the situation in your own words; I ask the annoying-but-necessary questions.</p>
         </div>
         <div class="step reveal">
           <span class="step-label">Step two</span>
-          <h3>Diagnostic sprint</h3>
+          <h3>Decision &amp; Discovery Sprint</h3>
           <p>1–2 weeks, fixed price, small scope, real deliverable. You see how I think before committing to anything big.</p>
         </div>
         <div class="step reveal">
           <span class="step-label">Step three</span>
-          <h3>Project or advisory</h3>
-          <p>Ongoing work, a defined project, or a few hours a month of a translator on call — whatever the task actually needs.</p>
+          <h3>Project or fractional</h3>
+          <p>A defined project, or a few days a month as your discovery lead — whatever the task actually needs.</p>
         </div>
       </div>
 
       <div class="principles reveal">
-        <p>Every engagement ends in a <span class="hl">document you own</span> — not a memory of a nice call.</p>
-        <p>No jargon in deliverables. If your grandmother can't follow the summary, I rewrite it.</p>
+        <p>Every engagement ends in a <span class="hl">document you own</span> — not a memory of a good call.</p>
+        <p>Every claim is labeled: known, assumed, or unknown — and what would settle it. I don't sell conviction.</p>
         <p>If you don't need me, I'll say so on the first call. It's cheaper for both of us.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       ABOUT
-       ============================================================ -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="label">Who's writing</p>
-        <h2>Same job, four industries</h2>
+        <h2>Same craft, four different rooms</h2>
       </div>
       <div class="about-grid">
         <div class="reveal">
           <p class="big">
-            I've spent my career translating between worlds: venture capital analysis,
-            LLM &amp; AI development, blockchain infrastructure, technical research.
-            Different rooms, same job — take something dense and
-            <span class="hl">make it make sense</span>.
+            I've done the same job in a venture fund, in AI development, in blockchain
+            infrastructure, and in academic research: take a question with too many unknowns,
+            go find out, and come back with something a decision-maker can
+            <span class="hl">act on</span>.
           </p>
           <p class="big">
-            That's why I'm useful in the gap where most projects stall: between the people
-            who build the thing and the people who need to decide about it.
+            Most recently, at a venture fund, that meant helping the CEO widen the investment
+            thesis beyond a single ecosystem, screening around a hundred early-stage companies,
+            interviewing founders about what actually blocks their markets, and designing
+            evaluation frameworks that decided who got funded. Different stakes, same craft —
+            separating what's known from what's merely asserted.
           </p>
         </div>
         <ul class="facts">
-          <!-- EDIT ME: adjust facts freely -->
-          <li>→ Background: VC · AI/LLM · blockchain infra · research</li>
-          <li>→ Languages: English, Russian</li>
-          <li>→ Based in Austria, works remote worldwide</li>
-          <li>→ Off duty: drums, Jungian psychology, and a dog with strong opinions</li>
+          <li>→ ~100 startups screened · 15–20 structured founder interviews in payments &amp; fintech</li>
+          <li>→ Designed evaluation benchmarks used to award ecosystem funding</li>
+          <li>→ <a href="https://doi.org/10.17587/it.31.258-270" target="_blank" rel="noopener">Peer-reviewed publication</a> on community tokenization tooling</li>
+          <li>→ Builds with LLMs, reads code, ships an AI product of her own</li>
+          <li>→ Languages: English and Russian — I work and write in both</li>
+          <li>→ Remote, worldwide · anchored in CET</li>
+          <li>→ Off duty: drums, and a dog with strong opinions</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CONTACT
-       ============================================================ -->
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="label">Questions</p>
+        <h2>Asked before you ask</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>What does a first engagement look like?</summary>
+          <p>A free 30-minute call, then a fixed-price Decision &amp; Discovery Sprint of one to two weeks: small scope, real deliverable. Bigger work only after that, and only if the sprint earned it.</p>
+        </details>
+        <details>
+          <summary>We already have a dev team / an agency. Where do you fit?</summary>
+          <p>Before them, mostly. I define what to build and why; they build it. Agencies also bring me in directly to run discovery with their clients before quoting a project — white-label is fine.</p>
+        </details>
+        <details>
+          <summary>Can you help with AI adoption?</summary>
+          <p>Yes — an AI decision is still a decision. I build with LLMs daily, so I can tell you where AI is the right answer and where a database and two good queries would do. It shows up inside sprints and assessments, not as a separate "AI strategy" package.</p>
+        </details>
+        <details>
+          <summary>What if the research contradicts what we hoped for?</summary>
+          <p>You'll hear it, with the evidence. Every claim in my deliverables is labeled: known, assumed, or unknown — and what experiment would settle it. I don't sell conviction.</p>
+        </details>
+        <details>
+          <summary>Do you write code?</summary>
+          <p>I can read it, test technical claims hands-on, and I ship my own products — that's what makes the assessment work credible. I don't take contract engineering roles.</p>
+        </details>
+        <details>
+          <summary>What languages and time zones?</summary>
+          <p>English and Russian, both at working depth, deliverables included. Remote, worldwide, anchored in Central European Time.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap">
       <p class="label">Contact</p>
-      <h2>Tell me about your task</h2>
-      <p class="hint">Three lines are enough: the context, the task, the deadline. I reply within one working day.</p>
+      <h2>What are you trying to decide?</h2>
+      <p class="hint">Three lines are enough: the context, the decision in front of you, the deadline. I reply within one working day.</p>
 
       <div class="contact-row">
-        <!-- EDIT ME: replace with your real email and Telegram handle (also in the JS CONFIG at the bottom) -->
         <button class="chip" id="copy-email" type="button">
           <span class="dot"></span><span id="email-text">daria.tar.gz@gmail.com</span><span id="copy-state">· copy</span>
         </button>
-        <a class="chip" href="https://t.me/dd_tar" target="_blank" rel="noopener">
-          <span class="dot"></span>Telegram · @dd_tar
+        <a class="chip" id="tg-link" href="https://t.me/dd_tar" target="_blank" rel="noopener">
+          <span class="dot"></span>Telegram · <span id="tg-text">@dd_tar</span>
         </a>
       </div>
 
-      <form class="mini-form" id="task-form">
+      <form class="mini-form" id="task-form" action="https://formsubmit.co/daria.tar.gz@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry — consulting site">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://dd-tar.github.io/consulting/?sent=1#contact">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div>
           <label for="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name">
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
         </div>
         <div>
-          <label for="f-task">The task, in your own words</label>
-          <textarea id="f-task" name="task" placeholder="Context. Task. Deadline."></textarea>
+          <label for="f-email">Your email — so I can reply</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
         </div>
-        <button class="btn btn-big" type="submit">Draft the email →</button>
-        <p class="form-note">This opens a pre-filled email in your mail app — nothing is stored on this site.</p>
+        <div>
+          <label for="f-task">The situation, in your own words</label>
+          <textarea id="f-task" name="message" placeholder="Context. Decision. Deadline." required></textarea>
+        </div>
+        <button class="btn btn-big" type="submit">Send →</button>
+        <div class="sendpanel" id="sendpanel" hidden aria-live="polite">
+          <p class="status" id="send-status"></p>
+        </div>
+        <p class="form-note">Goes straight to my inbox — nothing is stored on this site, no cookies. Prefer your own tools? Email or Telegram above.</p>
       </form>
     </div>
   </section>
@@ -589,102 +435,11 @@ footer a{ color:#B9B9C4; }
 
 <footer>
   <div class="wrap footer-inner">
-    <p>© 2026 Daya. All translations final.</p>
+    <p>© 2026 Daya · Independent consultant · Remote</p>
     <p>No cookies, no tracking, no newsletter popup.</p>
   </div>
 </footer>
 
-<script>
-/* ============================================================
-   CONFIG — EDIT ME
-   ============================================================ */
-const CONFIG = {
-  email: "daria.tar.gz@gmail.com"   // <-- your real email (used by the copy button and the form)
-};
-
-/* ---- keep the visible email in sync with CONFIG ---- */
-document.getElementById("email-text").textContent = CONFIG.email;
-
-/* ============================================================
-   Hero scramble: "Clarity" resolves out of noise
-   ============================================================ */
-(function(){
-  const el = document.getElementById("scramble");
-  if(!el) return;
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(reduced) return;
-
-  const word = el.dataset.word;
-  const glyphs = "◼◻▤▥#%&$@?!/\\<>{}[]≠≈∆";
-  let frame = 0;
-  const total = 36; // ~0.9s at 40ms
-
-  const timer = setInterval(() => {
-    frame++;
-    const settled = Math.floor((frame / total) * word.length);
-    let out = "";
-    for(let i = 0; i < word.length; i++){
-      out += i < settled ? word[i] : glyphs[Math.floor(Math.random() * glyphs.length)];
-    }
-    el.textContent = out;
-    if(frame >= total){
-      el.textContent = word;
-      clearInterval(timer);
-    }
-  }, 40);
-})();
-
-/* ============================================================
-   Reveal on scroll
-   ============================================================ */
-(function(){
-  const items = document.querySelectorAll(".reveal");
-  if(!("IntersectionObserver" in window)){
-    items.forEach(i => i.classList.add("in"));
-    return;
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  items.forEach(i => io.observe(i));
-})();
-
-/* ============================================================
-   Copy email
-   ============================================================ */
-(function(){
-  const btn = document.getElementById("copy-email");
-  const state = document.getElementById("copy-state");
-  btn.addEventListener("click", async () => {
-    try{
-      await navigator.clipboard.writeText(CONFIG.email);
-      state.textContent = "· copied ✓";
-    }catch(e){
-      state.textContent = "· " + CONFIG.email;
-    }
-    setTimeout(() => state.textContent = "· copy", 2000);
-  });
-})();
-
-/* ============================================================
-   Form → pre-filled mailto (no backend needed)
-   ============================================================ */
-(function(){
-  const form = document.getElementById("task-form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = document.getElementById("f-name").value.trim();
-    const task = document.getElementById("f-task").value.trim();
-    const subject = encodeURIComponent("Task: " + (name || "new inquiry"));
-    const body = encodeURIComponent(task + (name ? "\n\n— " + name : ""));
-    window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
-  });
-})();
-</script>
+<script src="main.js"></script>
 </body>
 </html>

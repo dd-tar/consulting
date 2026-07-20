@@ -1,0 +1,58 @@
+# Daya — independent consultant: decision research & product discovery
+
+> I help companies decide what to build, buy, or change — before the money gets spent.
+> Interviews, research, and technical analysis that turn a vague initiative into a decision
+> the client can defend: options weighed, scope defined, requirements a team or vendor can
+> execute. Remote, worldwide. Works in English and Russian.
+
+## Services
+- **Decision & Discovery Sprint** (core offer, 1–2 weeks, fixed price) — stakeholder
+  interviews, problem & process analysis, market and solution scan, build-vs-buy comparison.
+  Deliverable: a decision brief with a scoped first version, requirements, and risks that
+  can be handed to a team or vendor.
+- **Technical & Market Assessment** — independent evaluation of a market, vendor, or
+  technology: verified claims, comparisons against measurable criteria, diligence-style
+  research for investors. Deliverable: an evidence-based brief separating what is known,
+  assumed, and unknown, with sources and a recommendation.
+- **Fractional Discovery Lead** (ongoing, after a sprint) — a few days a month: continued
+  interviews, requirements kept current, translation between business stakeholders and the
+  people building.
+
+Typical clients: CEOs, COOs and heads of product/operations at tech-enabled companies
+(roughly 20–200 people), corporate product and innovation teams, software and automation
+agencies that want discovery run with their clients before quoting (white-label welcome),
+and investors needing diligence-style research.
+
+AI adoption work is available but deliberately not the headline: an AI decision is still a
+decision, and it is handled inside sprints and assessments rather than as a separate
+"AI strategy" package.
+
+## Background
+The same craft practiced in four rooms: a venture fund, AI/LLM development, blockchain
+infrastructure, and academic research. At a venture fund: helped the CEO widen the
+investment thesis beyond a single ecosystem, screened ~100 early-stage companies, ran
+15–20 structured founder interviews in payments and fintech, and designed evaluation
+benchmarks used to award ecosystem funding. Peer-reviewed publication on community
+tokenization tooling (DOI: 10.17587/it.31.258-270). Builds with LLMs, reads code, ships
+an independent AI product.
+
+## Working principles
+- Every engagement ends in a document the client owns.
+- Every claim is labeled: known, assumed, or unknown — and what would settle it.
+- No conviction for sale: if the research contradicts the hoped-for answer, the client hears it.
+- If the client doesn't need the work, they're told so on the first call.
+
+## How to work together
+1. A free 30-minute call.
+2. A fixed-price Decision & Discovery Sprint, 1–2 weeks, small scope, real deliverable.
+3. A defined project or a few days a month as fractional discovery lead — only if the sprint earned it.
+
+## Not a fit for
+Validating a decision already made; confidence delivered regardless of the data;
+full-time employment; answers that must arrive before the research does.
+
+## Contact
+- Email: daria.tar.gz@gmail.com
+- Telegram: https://t.me/dd_tar
+- English: https://dd-tar.github.io/consulting/
+- Russian: https://dd-tar.github.io/consulting/ru/
