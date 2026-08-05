@@ -1,58 +1,63 @@
-# Daya — independent consultant: decision research & product discovery
+# Daria Tarasova — research, product discovery and technical assessment
 
-> I help companies decide what to build, buy, or change — before the money gets spent.
-> Interviews, research, and technical analysis that turn a vague initiative into a decision
-> the client can defend: options weighed, scope defined, requirements a team or vendor can
-> execute. Remote, worldwide. Works in English and Russian.
+> Independent consultant researching complex product, technology and market questions.
+> Technology and implementation research, market research, technical-claim verification and
+> stakeholder interviews are turned into recommendations, solution boundaries, scope and requirements.
+> Remote worldwide; works in English and Russian.
 
-## Services
-- **Decision & Discovery Sprint** (core offer, 1–2 weeks, fixed price) — stakeholder
-  interviews, problem & process analysis, market and solution scan, build-vs-buy comparison.
-  Deliverable: a decision brief with a scoped first version, requirements, and risks that
-  can be handed to a team or vendor.
-- **Technical & Market Assessment** — independent evaluation of a market, vendor, or
-  technology: verified claims, comparisons against measurable criteria, diligence-style
-  research for investors. Deliverable: an evidence-based brief separating what is known,
-  assumed, and unknown, with sources and a recommendation.
-- **Fractional Discovery Lead** (ongoing, after a sprint) — a few days a month: continued
-  interviews, requirements kept current, translation between business stakeholders and the
-  people building.
+## Core service
 
-Typical clients: CEOs, COOs and heads of product/operations at tech-enabled companies
-(roughly 20–200 people), corporate product and innovation teams, software and automation
-agencies that want discovery run with their clients before quoting (white-label welcome),
-and investors needing diligence-style research.
+### Decision & Discovery Sprint
+A focused one-to-two-week engagement for a digital initiative that is important enough to
+fund but not yet defined enough to build. Typical inputs include stakeholder interviews,
+workflow analysis, market and solution research, technical review and targeted experiments.
 
-AI adoption work is available but deliberately not the headline: an AI decision is still a
-decision, and it is handled inside sprints and assessments rather than as a separate
-"AI strategy" package.
+The client receives:
+- a precise decision question and problem statement;
+- build / buy / change the process / do nothing options;
+- a recommendation with supporting evidence;
+- solution boundaries, first-version scope and prioritized requirements;
+- risks, assumptions and unresolved unknowns;
+- a document a delivery team or vendor can use immediately.
 
-## Background
-The same craft practiced in four rooms: a venture fund, AI/LLM development, blockchain
-infrastructure, and academic research. At a venture fund: helped the CEO widen the
-investment thesis beyond a single ecosystem, screened ~100 early-stage companies, ran
-15–20 structured founder interviews in payments and fintech, and designed evaluation
-benchmarks used to award ecosystem funding. Peer-reviewed publication on community
-tokenization tooling (DOI: 10.17587/it.31.258-270). Builds with LLMs, reads code, ships
-an independent AI product.
+## Additional services
+- **Technical & Market Assessment** — independent evaluation of a technology, implementation
+  approach, vendor, partner, investment or emerging market against explicit criteria. Includes
+  technical and market research, claim verification, comparisons and a next useful test.
+- **Fractional Discovery Lead** — ongoing interviews, requirements and decision support
+  between leadership, users, vendors and delivery teams. Available white-label to agencies.
+
+## Typical clients
+- CEOs, COOs and product or operations leads funding a new digital initiative;
+- software and automation agencies that need senior discovery before quoting delivery;
+- investors and strategy teams evaluating a company, technology, vendor or emerging theme.
+
+## Evidence and experience
+- At TVM Ventures, influenced a broader investment lens beyond one ecosystem, screened
+  approximately 100 early-stage companies and conducted 15–20 structured interviews with
+  payments and cross-border founders.
+- Designed a benchmark for TON swap-routing solutions; a confidential comparative report
+  informed jury decisions in an ecosystem competition.
+- Researched the launch of a cryptocurrency exchange from jurisdiction and licensing through
+  product, budget and operating plan; the company was established, licensed and launched.
+- Previous work includes CTO responsibilities, system and business analysis, Solidity and
+  Python development, technical documentation, AI/LLM products and academic research.
 
 ## Working principles
-- Every engagement ends in a document the client owns.
-- Every claim is labeled: known, assumed, or unknown — and what would settle it.
-- No conviction for sale: if the research contradicts the hoped-for answer, the client hears it.
-- If the client doesn't need the work, they're told so on the first call.
+- Structure the research around the decision the client needs to make.
+- Investigate technologies, implementation approaches, markets and stakeholder needs at the depth the question requires.
+- State the reasoning, limitations and remaining risks behind a recommendation.
+- End every engagement with a document the client owns: recommendation, solution boundaries, scope, requirements and next actions as relevant.
 
-## How to work together
-1. A free 30-minute call.
-2. A fixed-price Decision & Discovery Sprint, 1–2 weeks, small scope, real deliverable.
-3. A defined project or a few days a month as fractional discovery lead — only if the sprint earned it.
-
-## Not a fit for
-Validating a decision already made; confidence delivered regardless of the data;
-full-time employment; answers that must arrive before the research does.
+## Public profile and publications
+- English profile: https://dd-tar.github.io/consulting/about/
+- Russian profile: https://dd-tar.github.io/consulting/ru/about/
+- Journal article: https://doi.org/10.17587/it.31.258-270
+- GitHub: https://github.com/dd-tar
+- Medium: https://medium.com/@daria.tar.gz
 
 ## Contact
 - Email: daria.tar.gz@gmail.com
 - Telegram: https://t.me/dd_tar
-- English: https://dd-tar.github.io/consulting/
-- Russian: https://dd-tar.github.io/consulting/ru/
+- English services: https://dd-tar.github.io/consulting/
+- Russian services: https://dd-tar.github.io/consulting/ru/

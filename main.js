@@ -1,132 +1,148 @@
-/* ============================================================
-   CONFIG — the only place your contacts live. EDIT HERE.
-   NOTE: the contact form posts to FormSubmit using the address
-   in the form's `action` attribute in index.html / ru/index.html.
-   If you change the email, change it there too.
-   ============================================================ */
 const CONFIG = {
   email: "daria.tar.gz@gmail.com",
   telegram: "dd_tar"
 };
 
 const LANG = document.documentElement.lang === "ru" ? "ru" : "en";
-
-const T = {
+const TEXT = {
   en: {
-    copy: "· copy",
-    copied: "· copied ✓",
-    sent: "Sent ✓ — I'll reply within one working day."
+    copy: "copy",
+    copied: "copied ✓",
+    sent: "Sent ✓ — I will reply within one working day."
   },
   ru: {
-    copy: "· копировать",
-    copied: "· скопировано ✓",
-    sent: "Отправлено ✓ — отвечу в течение рабочего дня."
+    copy: "копировать",
+    copied: "скопировано ✓",
+    sent: "Отправлено ✓ — отвечу в течение одного рабочего дня."
   }
 }[LANG];
 
-/* ---- keep the visible contacts in sync with CONFIG ---- */
-(function(){
-  const e = document.getElementById("email-text");
-  if(e) e.textContent = CONFIG.email;
-  const t = document.getElementById("tg-link");
-  if(t){
-    t.href = "https://t.me/" + CONFIG.telegram;
-    const tt = document.getElementById("tg-text");
-    if(tt) tt.textContent = "@" + CONFIG.telegram;
+/* Keep shared contact details and the copyright year consistent on every page. */
+(function syncSharedDetails(){
+  const email = document.getElementById("email-text");
+  if(email) email.textContent = CONFIG.email;
+
+  const telegram = document.getElementById("tg-link");
+  if(telegram){
+    telegram.href = "https://t.me/" + CONFIG.telegram;
+    const telegramText = document.getElementById("tg-text");
+    if(telegramText) telegramText.textContent = "@" + CONFIG.telegram;
   }
-})();
 
-/* ============================================================
-   Hero scramble: the payoff word resolves out of noise
-   ============================================================ */
-(function(){
-  const el = document.getElementById("scramble");
-  if(!el) return;
-  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  const word = el.dataset.word || el.textContent.trim();
-  const glyphs = "◼◻▤▥#%&$@?!/\\<>{}[]≠≈∆";
-  let frame = 0;
-  const total = 36;
-
-  const timer = setInterval(() => {
-    frame++;
-    const settled = Math.floor((frame / total) * word.length);
-    let out = "";
-    for(let i = 0; i < word.length; i++){
-      out += i < settled ? word[i] : glyphs[Math.floor(Math.random() * glyphs.length)];
-    }
-    el.textContent = out;
-    if(frame >= total){ el.textContent = word; clearInterval(timer); }
-  }, 40);
-})();
-
-/* ============================================================
-   Reveal on scroll
-   ============================================================ */
-(function(){
-  const items = document.querySelectorAll(".reveal");
-  if(!("IntersectionObserver" in window)){
-    items.forEach(i => i.classList.add("in"));
-    return;
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  items.forEach(i => io.observe(i));
-})();
-
-/* ============================================================
-   Copy email
-   ============================================================ */
-(function(){
-  const btn = document.getElementById("copy-email");
-  const state = document.getElementById("copy-state");
-  if(!btn || !state) return;
-  btn.addEventListener("click", async () => {
-    const ok = await copyText(CONFIG.email);
-    state.textContent = ok ? T.copied : "";
-    setTimeout(() => state.textContent = T.copy, 2000);
+  document.querySelectorAll("[data-current-year]").forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
   });
 })();
 
-/* ============================================================
-   Contact form: real delivery via FormSubmit.
-   The <form> posts to https://formsubmit.co/<email>; FormSubmit
-   emails the message and redirects back here with ?sent=1.
-   All this script does is show the success note after redirect.
-   ============================================================ */
-(function(){
+/* Reveal content progressively, while leaving everything visible when JavaScript is off. */
+(function revealOnScroll(){
+  const items = document.querySelectorAll(".reveal");
+  if(!items.length) return;
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  document.documentElement.classList.add("reveal-ready");
+
+  if(!("IntersectionObserver" in window)){
+    items.forEach((item) => item.classList.add("in"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("in");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+  items.forEach((item) => observer.observe(item));
+})();
+
+/* Keep the document-style section rail in sync with the reader's position. */
+(function sectionRailNavigation(){
+  const links = Array.from(document.querySelectorAll("[data-section-link]"));
+  if(!links.length) return;
+
+  const entries = links
+    .map((link) => ({ link, section: document.getElementById(link.dataset.sectionLink) }))
+    .filter((entry) => entry.section);
+
+  if(!entries.length) return;
+
+  let queued = false;
+  const update = () => {
+    const marker = window.innerHeight * 0.38;
+    let current = entries[0];
+
+    entries.forEach((entry) => {
+      if(entry.section.getBoundingClientRect().top <= marker) current = entry;
+    });
+
+    entries.forEach((entry) => {
+      const active = entry === current;
+      entry.link.classList.toggle("is-active", active);
+      if(active) entry.link.setAttribute("aria-current", "location");
+      else entry.link.removeAttribute("aria-current");
+    });
+    queued = false;
+  };
+
+  const requestUpdate = () => {
+    if(queued) return;
+    queued = true;
+    window.requestAnimationFrame(update);
+  };
+
+  window.addEventListener("scroll", requestUpdate, { passive:true });
+  window.addEventListener("resize", requestUpdate);
+  update();
+})();
+
+/* Copy the email address without requiring a configured desktop mail client. */
+(function copyEmail(){
+  const button = document.getElementById("copy-email");
+  const state = document.getElementById("copy-state");
+  if(!button || !state) return;
+
+  button.addEventListener("click", async () => {
+    const copied = await copyText(CONFIG.email);
+    state.textContent = copied ? TEXT.copied : TEXT.copy;
+    window.setTimeout(() => { state.textContent = TEXT.copy; }, 2200);
+  });
+})();
+
+/* FormSubmit redirects back with ?sent=1 after successful delivery. */
+(function showFormSuccess(){
   const panel = document.getElementById("sendpanel");
   const status = document.getElementById("send-status");
   if(!panel || !status) return;
-  if(new URLSearchParams(location.search).get("sent") === "1"){
-    status.textContent = T.sent;
+
+  if(new URLSearchParams(window.location.search).get("sent") === "1"){
+    status.textContent = TEXT.sent;
     panel.hidden = false;
-    /* strip ?sent=1 so a reload doesn't re-show the note */
-    history.replaceState(null, "", location.pathname + location.hash);
+    window.history.replaceState(null, "", window.location.pathname + window.location.hash);
   }
 })();
 
-/* clipboard with a fallback for non-secure contexts (file://) */
-async function copyText(text){
+async function copyText(value){
   try{
     if(navigator.clipboard && window.isSecureContext){
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(value);
       return true;
     }
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    const ok = document.execCommand("copy");
-    document.body.removeChild(ta);
-    return ok;
-  }catch(e){
+
+    const fallback = document.createElement("textarea");
+    fallback.value = value;
+    fallback.setAttribute("readonly", "");
+    fallback.style.position = "fixed";
+    fallback.style.opacity = "0";
+    document.body.appendChild(fallback);
+    fallback.select();
+    const copied = document.execCommand("copy");
+    fallback.remove();
+    return copied;
+  }catch(error){
     return false;
   }
 }
