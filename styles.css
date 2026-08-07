@@ -328,6 +328,7 @@ section{ padding-block:var(--section); border-top:1px solid var(--line); }
 .contact-form{ display:grid; gap:9px; padding:clamp(24px,4vw,38px); background:#1D1D24; border:1px solid #393943; }
 .contact-form label{ margin-top:7px; color:#AFAFB9; font-family:var(--font-mono); font-size:10.5px; letter-spacing:.065em; text-transform:uppercase; }
 .contact-form input,.contact-form textarea{ width:100%; padding:13px 14px; border:1px solid #44444E; border-radius:0; background:#15151A; color:#fff; font-family:var(--font-body); font-size:15.5px; }
+.contact-form input::placeholder,.contact-form textarea::placeholder{ color:#858590; opacity:1; }
 .contact-form input:focus,.contact-form textarea:focus{ outline:2px solid var(--yellow); outline-offset:0; border-color:var(--yellow); }
 .contact-form textarea{ min-height:210px; resize:vertical; }
 .contact-form .btn-submit{ justify-self:start; margin-top:12px; background:var(--yellow); border-color:var(--yellow); color:var(--ink); }

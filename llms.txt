@@ -22,8 +22,8 @@ The client receives:
 
 ## Additional services
 - **Technical & Market Assessment** — independent evaluation of a technology, implementation
-  approach, vendor, partner, investment or emerging market against explicit criteria. Includes
-  technical and market research, claim verification, comparisons and a next useful test.
+  approach, vendor, partner, investment or emerging market. Includes defining evaluation
+  criteria, technical and market research, claim verification, comparisons and a next useful test.
 - **Fractional Discovery Lead** — ongoing or on-demand research, requirements, executive
   decision support and special cross-functional projects. Available white-label to agencies.
 
