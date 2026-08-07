@@ -2,7 +2,7 @@
 
 > Independent consultant researching complex product, technology and market questions.
 > Technology and implementation research, market research, technical-claim verification and
-> stakeholder interviews are turned into recommendations, solution boundaries, scope and requirements.
+> stakeholder interviews are turned into clear decisions, solution boundaries and working requirements.
 > Remote worldwide; works in English and Russian.
 
 ## Core service
@@ -14,9 +14,9 @@ workflow analysis, market and solution research, technical review and targeted e
 
 The client receives:
 - a precise decision question and problem statement;
-- build / buy / change the process / do nothing options;
+- options and explicit criteria for choosing between them;
 - a recommendation with supporting evidence;
-- solution boundaries, first-version scope and prioritized requirements;
+- solution boundaries and prioritized requirements for the first version;
 - risks, assumptions and unresolved unknowns;
 - a document a delivery team or vendor can use immediately.
 
@@ -24,8 +24,8 @@ The client receives:
 - **Technical & Market Assessment** — independent evaluation of a technology, implementation
   approach, vendor, partner, investment or emerging market against explicit criteria. Includes
   technical and market research, claim verification, comparisons and a next useful test.
-- **Fractional Discovery Lead** — ongoing interviews, requirements and decision support
-  between leadership, users, vendors and delivery teams. Available white-label to agencies.
+- **Fractional Discovery Lead** — ongoing or on-demand research, requirements, executive
+  decision support and special cross-functional projects. Available white-label to agencies.
 
 ## Typical clients
 - CEOs, COOs and product or operations leads funding a new digital initiative;
@@ -44,10 +44,10 @@ The client receives:
   Python development, technical documentation, AI/LLM products and academic research.
 
 ## Working principles
-- Structure the research around the decision the client needs to make.
+- Design the research for the client's specific question and the decision it must support.
 - Investigate technologies, implementation approaches, markets and stakeholder needs at the depth the question requires.
 - State the reasoning, limitations and remaining risks behind a recommendation.
-- End every engagement with a document the client owns: recommendation, solution boundaries, scope, requirements and next actions as relevant.
+- End every engagement with a usable result the client owns: a recommendation, assessment, solution boundaries, requirements and next actions as relevant.
 
 ## Public profile and publications
 - English profile: https://dd-tar.github.io/consulting/about/
