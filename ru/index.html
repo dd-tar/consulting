@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260807b">
+<link rel="stylesheet" href="../styles.css?v=20260808c">
 
 <script type="application/ld+json">
 {
@@ -134,7 +134,7 @@
         <li><a href="#work">Услуги</a></li>
         <li><a href="#evidence">Примеры</a></li>
         <li><a href="#approach">Подход</a></li>
-        <li><a href="about/">Профиль</a></li>
+        <li><a href="about/">Обо мне</a></li>
       </ul>
     </nav>
     <div class="lang" aria-label="Язык">
@@ -306,7 +306,7 @@
         <p class="eyebrow">Примеры проектов</p>
         <h2>Как эта работа выглядит на практике.</h2>
       </div>
-      <p class="section-intro">Часть результатов нельзя публиковать целиком. Поэтому здесь — исходный вопрос, проведённое исследование и то, что изменилось; открытые публикации и код собраны в профиле.</p>
+      <p class="section-intro">Часть результатов нельзя публиковать целиком. Поэтому здесь — исходный вопрос, проведённое исследование и то, что изменилось; открытые публикации собраны в профиле.</p>
     </div>
 
     <div class="wrap case-grid">
@@ -384,7 +384,7 @@
           <li><strong>Разработка:</strong> архитектура, документация, программирование и практические тесты</li>
           <li><strong>Отрасли:</strong> финтех, платежи, продукты с ИИ и блокчейн-инфраструктура</li>
         </ul>
-        <a class="btn btn-secondary" href="about/" data-track="profile_open">Опыт, публикации и код →</a>
+        <a class="btn btn-secondary" href="about/" data-track="profile_open">Опыт и публикации →</a>
       </div>
     </div>
   </section>
@@ -440,7 +440,7 @@
         <input type="hidden" name="_subject" value="Новый запрос — сайт консалтинга">
         <input type="hidden" name="_template" value="box">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://dd-tar.github.io/consulting/ru/?sent=1#contact">
+        <input type="hidden" name="_next" value="https://dd-tar.github.io/consulting/ru/?sent=1">
         <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label for="f-name">Ваше имя</label>
         <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Фредди Меркьюри" required>
@@ -449,7 +449,10 @@
         <label for="f-task">Ситуация своими словами</label>
         <textarea id="f-task" name="message" rows="9" placeholder="Решаю, запускать ли сольный проект. Хочу понять аудиторию, позиционирование и риски до того, как вложусь в запуск." required></textarea>
         <button class="btn btn-submit" type="submit" data-track="contact_form_button">Отправить →</button>
-        <div class="send-panel" id="sendpanel" hidden aria-live="polite"><p id="send-status"></p></div>
+        <div class="send-panel" id="sendpanel" hidden role="status" aria-live="polite">
+          <p id="send-status"></p>
+          <button class="send-panel-close" type="button" aria-label="Закрыть уведомление">×</button>
+        </div>
         <p class="form-note">Сообщение придёт мне на почту. Текст формы не передаётся в аналитику.</p>
       </form>
     </div>
@@ -459,11 +462,11 @@
 <footer>
   <div class="wrap footer-inner">
     <p>© <span data-current-year>2026</span> Дарья Тарасова · Независимый консультант · Удалённо</p>
-    <p><a href="about/">Профессиональный профиль</a></p>
+    <p><a href="about/">Опыт и публикации</a></p>
   </div>
 </footer>
 
 <script src="../analytics.js?v=20260807"></script>
-<script src="../main.js?v=20260807"></script>
+<script src="../main.js?v=20260808"></script>
 </body>
 </html>

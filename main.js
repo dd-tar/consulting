@@ -8,12 +8,12 @@ const TEXT = {
   en: {
     copy: "copy",
     copied: "copied ✓",
-    sent: "Sent ✓ — I will reply within one working day."
+    sent: "Message sent. I’ll reply within one working day."
   },
   ru: {
     copy: "копировать",
     copied: "скопировано ✓",
-    sent: "Отправлено ✓ — отвечу в течение одного рабочего дня."
+    sent: "Сообщение отправлено. Отвечу в течение одного рабочего дня."
   }
 }[LANG];
 
@@ -121,7 +121,12 @@ const TEXT = {
   if(new URLSearchParams(window.location.search).get("sent") === "1"){
     status.textContent = TEXT.sent;
     panel.hidden = false;
-    window.history.replaceState(null, "", window.location.pathname + window.location.hash);
+    window.history.replaceState(null, "", window.location.pathname);
+
+    const close = panel.querySelector(".send-panel-close");
+    const dismiss = () => { panel.hidden = true; };
+    if(close) close.addEventListener("click", dismiss, { once:true });
+    window.setTimeout(dismiss, 10000);
   }
 })();
 

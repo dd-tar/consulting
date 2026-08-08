@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260807b">
+<link rel="stylesheet" href="styles.css?v=20260808c">
 
 <script type="application/ld+json">
 {
@@ -306,7 +306,7 @@
         <p class="eyebrow">Selected projects</p>
         <h2>What the work looked like in practice.</h2>
       </div>
-      <p class="section-intro">Some deliverables are confidential. These summaries show the starting question, the research and what changed; public publications and code are linked in the profile.</p>
+      <p class="section-intro">Some deliverables are confidential. These summaries show the starting question, the research and what changed; public publications are linked in the profile.</p>
     </div>
 
     <div class="wrap case-grid">
@@ -384,7 +384,7 @@
           <li><strong>Engineering:</strong> software development, architecture, documentation and hands-on testing</li>
           <li><strong>Domains:</strong> fintech, payments, AI products and blockchain infrastructure</li>
         </ul>
-        <a class="btn btn-secondary" href="about/" data-track="profile_open">Experience, publications &amp; code →</a>
+        <a class="btn btn-secondary" href="about/" data-track="profile_open">Experience &amp; publications →</a>
       </div>
     </div>
   </section>
@@ -440,7 +440,7 @@
         <input type="hidden" name="_subject" value="New inquiry — consulting site">
         <input type="hidden" name="_template" value="box">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://dd-tar.github.io/consulting/?sent=1#contact">
+        <input type="hidden" name="_next" value="https://dd-tar.github.io/consulting/?sent=1">
         <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label for="f-name">Your name</label>
         <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Freddie Mercury" required>
@@ -449,7 +449,10 @@
         <label for="f-task">The situation, in your own words</label>
         <textarea id="f-task" name="message" rows="9" placeholder="I’m deciding whether to launch a solo project. I need to understand the audience, positioning and risks before I commit." required></textarea>
         <button class="btn btn-submit" type="submit" data-track="contact_form_button">Send →</button>
-        <div class="send-panel" id="sendpanel" hidden aria-live="polite"><p id="send-status"></p></div>
+        <div class="send-panel" id="sendpanel" hidden role="status" aria-live="polite">
+          <p id="send-status"></p>
+          <button class="send-panel-close" type="button" aria-label="Dismiss confirmation">×</button>
+        </div>
         <p class="form-note">Your message goes directly to my email. Analytics never receives the text entered here.</p>
       </form>
     </div>
@@ -464,6 +467,6 @@
 </footer>
 
 <script src="analytics.js?v=20260807"></script>
-<script src="main.js?v=20260807"></script>
+<script src="main.js?v=20260808"></script>
 </body>
 </html>
