@@ -11,8 +11,7 @@ about/index.html    English professional profile and selected work
 ru/index.html       Russian services page
 ru/about/index.html Russian professional profile and selected work
 styles.css          Shared responsive design
-main.js             Shared navigation, email-copy, reveal and form-success behaviour
-analytics.js        Optional GA4 page-view and click analytics; disabled until configured
+main.js             Shared behaviour plus GA4 page-view and click analytics
 og.png              1200×630 social preview for Telegram, Slack and social platforms
 robots.txt          Search and AI crawler rules
 sitemap.xml         Four localized URLs with hreflang
@@ -49,23 +48,27 @@ FormSubmit. Until that confirmation is complete, FormSubmit holds new submission
 The form includes a honeypot field and disables the extra CAPTCHA. Email-copy and Telegram
 remain available when a visitor does not want to use the form.
 
-## Private traffic and click analytics
+## Traffic and click analytics
 
-`analytics.js` contains a ready Google Analytics 4 integration, but it is disabled by default
-and makes no network requests. To enable it:
+Google Analytics 4 is enabled with Measurement ID `G-894SJDYW6L` on all four pages. It records
+page views plus a `site_click` event for the site's service, profile, publication and contact
+elements. A `generate_lead` event is recorded only after FormSubmit redirects back with
+`?sent=1`, not when somebody merely presses the submit button.
 
-1. Create a GA4 property and a Web data stream for `https://dd-tar.github.io/consulting/`.
-2. Copy the Measurement ID beginning with `G-`.
-3. Paste it into `ANALYTICS_MEASUREMENT_ID` at the top of `analytics.js`.
+The analytics code never reads the form fields. Page locations are sent without query
+parameters, Google Signals and ad-personalisation signals are disabled, and localhost page
+views and events are excluded so local previews do not pollute the reports.
 
-GA4 will record visits automatically. The site additionally records named clicks on service,
-profile, publication and contact elements, plus successful form submission attempts. The
-message text, name and email entered in the form are never passed to analytics. Reports are
-visible in the GA4 account, not publicly on the site.
+No Google Tag Manager container is required for this setup. In GA4 Admin:
 
-Google Analytics may use cookies. Before enabling it, decide whether the audiences and
-jurisdictions you target require a consent banner or another privacy notice. Leaving the ID
-empty keeps analytics entirely off.
+1. Mark `generate_lead` as a key event.
+2. Add an event-scoped custom dimension named `element_name` if click breakdowns should be
+   available in standard reports.
+3. Enable email and query-parameter redaction for the web data stream as an additional safety
+   net, and choose the shortest data-retention period that is useful.
+
+The public Measurement ID does not grant access to the Analytics account. Protect the Google
+account with two-factor authentication and keep property access limited to trusted users.
 
 ## Deploy to GitHub Pages
 

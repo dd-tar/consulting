@@ -34,8 +34,8 @@ The client receives:
 
 ## Evidence and experience
 - At TVM Ventures, influenced a broader investment lens beyond one ecosystem, screened
-  approximately 100 early-stage companies and conducted 15–20 structured interviews with
-  payments and cross-border founders.
+  100+ early-stage companies and conducted 30+ founder interviews, including companies
+  working in payments and cross-border finance.
 - Designed a benchmark for TON swap-routing solutions; a confidential comparative report
   informed jury decisions in an ecosystem competition.
 - Researched the launch of a cryptocurrency exchange from jurisdiction and licensing through
