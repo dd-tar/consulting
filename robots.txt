@@ -32,4 +32,4 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
-Sitemap: https://dd-tar.github.io/consulting/sitemap.xml
+Sitemap: https://ddtar.xyz/sitemap.xml

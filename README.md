@@ -1,7 +1,7 @@
 # Daria Tarasova — consulting and professional profile
 
 Static bilingual site for GitHub Pages. No build step, package manager, database or server is
-required. The production address is `https://dd-tar.github.io/consulting/`.
+required. The production address is `https://ddtar.xyz/`.
 
 ## Pages and shared files
 
@@ -19,8 +19,8 @@ llms.txt            Plain-language summary for AI assistants
 .nojekyll            Serve the files as-is on GitHub Pages
 ```
 
-All internal navigation uses relative URLs, so the site works at the GitHub Pages project
-path `/consulting/`, on localhost and on a future custom domain.
+All internal navigation uses relative URLs, so the site works at the custom-domain root and
+on localhost. The former GitHub Pages project URL redirects to the production domain.
 
 ## Local preview
 
