@@ -14,7 +14,7 @@ styles.css          Shared responsive design
 main.js             Shared behaviour plus GA4 page-view and click analytics
 og.png              1200×630 social preview for Telegram, Slack and social platforms
 robots.txt          Search and AI crawler rules
-sitemap.xml         Four localized URLs with hreflang
+sitemap.xml         Four canonical localized URLs for search engines
 llms.txt            Plain-language summary for AI assistants
 .nojekyll            Serve the files as-is on GitHub Pages
 ```
