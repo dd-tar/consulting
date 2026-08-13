@@ -206,6 +206,8 @@ section{ padding-block:var(--section); border-top:1px solid var(--line); }
   line-height:1.04;
 }
 .hero-sub{ margin-top:30px; max-width:710px; font-size:clamp(17px,2vw,21px); line-height:1.55; }
+.hero-sub-block{ display:block; }
+.hero-sub-block + .hero-sub-block{ margin-top:.7em; }
 .hero-actions,.profile-actions{ margin-top:36px; display:flex; flex-wrap:wrap; align-items:center; gap:20px; }
 .decision-card{
   position:relative;
